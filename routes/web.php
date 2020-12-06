@@ -14,7 +14,7 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/','PagesController@root')->name('root');
+Route::get('/', 'PagesController@root')->name('root');
 
 // 用户身份验证相关的路由
 //Route::get('login', 'Auth\LoginController@showLoginForm')->name('login');
@@ -36,3 +36,4 @@ Route::get('/','PagesController@root')->name('root');
 //Route::get('email/verify/{id}/{hash}', 'Auth\VerificationController@verify')->name('verification.verify');
 //Route::post('email/resend', 'Auth\VerificationController@resend')->name('verification.resend');
 Auth::routes(['verify' => true]);
+Route::resource('users', 'UsersController', ['only' => ['show', 'edit', 'update']]);
